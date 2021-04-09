@@ -1,0 +1,47 @@
+<?php
+require_once "Cozinha.php";
+require_once "Ingrediente.php";
+require_once "Funcionario.php";
+
+
+$funcionarioPedro = new Funcionario();
+$funcionarioPedro->setNome("Pedro Henrique");
+$funcionarioPedro->setCargo("Cozinheiro");
+$funcionarioPedro->setDataContratacao(new DateTime("2021-01-04"));
+$funcionarioPedro->setSalario(15856.00);
+
+$queijo = new Ingrediente();
+$queijo->setNome("Queijo");
+$queijo->setDataValidade(new DateTime());
+
+$ingredienteDois = new Ingrediente();
+$ingredienteDois->setNome("Pimenta");
+$ingredienteDois->setDataValidade(new DateTime("2021-01-15"));
+
+$mineira = new Cozinha();
+$mineira->setNome("Mineira");
+$mineira->setHorarioAbertura(12);
+$mineira->setHorarioFechamento(22);
+$mineira->setPratoPrincipal("Pão de Queijo");
+$mineira->setListaFuncionarios($funcionarioPedro);
+$mineira->setListaIngredientes($queijo);
+$mineira->setListaIngredientes($ingredienteDois);
+
+$macarrao = new Ingrediente();
+$macarrao->setNome("Macarrão");
+$macarrao->setDataValidade(new DateTime());
+
+$chinesa = new Cozinha();
+$chinesa->setNome("Chineza");
+$chinesa->setPratoPrincipal("Yakisoba");
+$chinesa->setHorarioAbertura(10);
+$chinesa->setHorarioFechamento(21);
+$chinesa->setListaIngredientes($macarrao);
+
+echo "<pre>";
+
+print_r($mineira);
+
+print_r($chinesa);
+
+
